@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "YOUR_DOCKERHUB_USERNAME/jenkins-demo"
+        IMAGE_NAME = "amit9693/jenkins-demo"
     }
 
     stages {
