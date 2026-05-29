@@ -76,7 +76,7 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/Amitsingh9693/testjenkins.git'
+                git branch: 'main', url: 'https://github.com/Amitsingh9693/testjenkins.git'
             }
         }
 
