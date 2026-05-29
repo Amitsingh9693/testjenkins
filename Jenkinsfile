@@ -10,8 +10,7 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git branch: 'main',
-                git 'https://github.com/Amitsingh9693/testjenkins.git'
+                git branch: 'main', url: 'https://github.com/Amitsingh9693/testjenkins.git'
             }
         }
 
@@ -26,9 +25,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
-
                         docker.image("${IMAGE_NAME}:latest").push()
                     }
                 }
@@ -37,7 +34,6 @@ pipeline {
 
         stage('Deploy Container') {
             steps {
-
                 sh '''
                 docker stop myapp || true
                 docker rm myapp || true
